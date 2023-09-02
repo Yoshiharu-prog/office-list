@@ -37,7 +37,7 @@ html {
     --background-color-rgb: 250, 250, 250;
 
     /* 要素の最大幅 */
-    --max-width-contents: 1000px;
+    --max-width-contents: 750px;
 
     /* 各文字サイズ */
     --header-logo-hui-fs: 4rem;
