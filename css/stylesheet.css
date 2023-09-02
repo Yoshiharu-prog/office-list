@@ -1,0 +1,359 @@
+/* CSSのリセット */
+html,
+body,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+/*
+a {
+    text-decoration: none;
+}
+*/
+/* ########################################################## */
+/*                         各種設定
+/* ########################################################## */
+html {
+    font-size: 10px;
+}
+
+:root {
+    /* 背景色 */
+    --background-color-hex: #fafafa;
+    --background-color-rgb: 250, 250, 250;
+
+    /* 要素の最大幅 */
+    --max-width-contents: 1000px;
+
+    /* 各文字サイズ */
+    --header-logo-hui-fs: 4rem;
+    --header-menu-fs: 2rem;
+
+    --main-top-h1-fs: 2.5rem;
+    --main-top-p-fs: 2rem;
+    --main-store-p-fs: 1.5rem;
+    --main-nav-p-fs: 2rem;
+    --main-nav-btn-p-fs: 2rem;
+
+    --main-h1-fs: 2.5rem;
+    --main-h2-fs: 2.5rem;
+    --main-p-fs: 2rem;
+
+    --main-p-hui-fs: 3rem;
+    --footer-p-fs: 2rem;
+}
+
+/* 外部フォントの読み込み */
+@font-face {
+    font-family: "CustomFont";
+    src: url("../fonts/HuiFontP29.ttf") format("truetype");
+}
+
+/* <body>全体の設定 */
+body {
+    /* font-family: "メイリオ", Meiryo, YuGothic, "Yu Gothic", "ＭＳ Ｐゴシック",
+        "MS PGothic", "Hiragino Sans", "ヒラギノ角ゴシック", "Arial", "Avenir",
+        "Helvetica Neue", "Helvetica", sans-serif; */
+    background-color: var(--background-color-hex);
+    /*
+    background-image: url(../images/top-background-image.jpg);
+    background-blend-mode: difference;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    */
+}
+
+.clear-float {
+    clear: both;
+}
+
+/* ########################################################## */
+/*                         ヘッダー
+/* ########################################################## */
+header {
+    width: 100%;
+    background-color: rgba(var(--background-color-rgb), 0.7);
+    border-bottom: 1px solid black;
+
+    /* 画面上に位置固定の設定 */
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+.header-wrap {
+    max-width: var(--max-width-contents);
+    margin: 0 auto;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    margin: 0 0 5px 0;
+}
+
+.header-logo a {
+    font-family: "CustomFont", "メイリオ", Meiryo, YuGothic, "Yu Gothic",
+        "ＭＳ Ｐゴシック", "MS PGothic", "Hiragino Sans", "ヒラギノ角ゴシック",
+        "Arial", "Avenir", "Helvetica Neue", "Helvetica", sans-serif;
+    font-size: var(--header-logo-hui-fs);
+    font-weight: bold;
+
+    /* 文字色の設定 */
+    /* -webkit-がきかないときの文字色 */
+    color: blue;
+    /* ロゴの文字にグラデーション適用 */
+    background: -webkit-linear-gradient(5deg, #1c03ff, #6f00ff, #ca00d1);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header-menu {
+    padding: 5px 10px;
+    margin: 5px 0 5px 20px;
+    border: 1px solid blue;
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+
+}
+
+.header-menu p {
+    font-size: var(--header-menu-fs); 
+    color: blue;
+}
+
+.header-menu-btn {
+    position: relative;/*ボタン内側の基点となるためrelativeを指定*/
+    cursor: pointer;
+    margin-left: 20px;
+    width: 45px;
+    height:30px;
+    border: 1px solid blue;
+    border-radius: 5px;
+/*    float: left; */
+}
+
+  /*ボタン内側*/
+.header-menu-btn span{
+    display: inline-block;
+    transition: all .4s;/*アニメーションの設定*/
+    position: absolute;
+    left: 9px;
+    height: 2px;
+    border-radius: 5px;
+    background: black;
+    width: 60%;
+}
+
+.header-menu-btn span:nth-of-type(1) {
+    top: 3px; 
+}
+
+.header-menu-btn span:nth-of-type(2) {
+    top: 7px;
+}
+
+.header-menu-btn span:nth-of-type(3) {
+    top: 11px;
+}
+
+/*3つ目の要素のafterにMenu表示を指定*/
+.header-menu-btn span:nth-of-type(3)::after {
+    content:"Open";
+    position: absolute;
+    top:5px;
+    left:-2px;
+    color: black;
+    font-size: 0.5rem;
+    text-transform: uppercase;
+}
+
+/*activeクラスが付与されると線が回転して×になり、Menu⇒Closeに変更*/
+.header-menu-btn.active span:nth-of-type(1) {
+      top: 3px;
+      left: 15px;
+      transform: translateY(6px) rotate(-45deg);
+      width: 14px;
+}
+
+.header-menu-btn.active span:nth-of-type(2) {
+    opacity: 0;
+}
+
+.header-menu-btn.active span:nth-of-type(3) {
+      top: 15px;
+      left: 15px;
+      transform: translateY(-6px) rotate(45deg);
+      width: 14px;
+}
+
+/*3つ目の要素のafterにClose表示を指定*/
+.header-menu-btn.active span:nth-of-type(3)::after {
+    content:"Close";
+    transform: translateY(0) rotate(-45deg);
+    top:3px;
+    left:1px;
+}
+
+/* ########################################################## */
+/*                        メイン
+/* ########################################################## */
+main {
+    width: 100%;
+}
+
+.main-wrap {
+    max-width: var(--max-width-contents);
+    margin: 80px auto 0 auto;
+    position: relative;
+}
+
+.main-top-container {
+    width: 100%;
+    padding: 5px 10px;
+    float: left;
+    text-align: center;
+}
+
+.main-top-container.open {
+    width: 70%;
+}
+
+.main-top-copy p {
+    font-size: var(--main-top-p-fs);
+    color: black;
+}
+
+.main-top-copy h1 {
+    font-size: var(--main-top-h1-fs);
+    color: black;
+}
+
+.stores {
+    text-align: left;
+}
+
+.stores-list p {
+    font-size: var(--main-store-p-fs);
+    color: black;
+    margin-top: 10px;
+}
+
+.stores-list-item {
+    font-size: var(--main-store-p-fs);
+    color: black;
+    padding: 10px 10px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    list-style: none;
+    cursor: pointer;
+}
+
+.detail-btn {
+    color: blue;
+}
+
+.store-details {
+    display: none;
+}
+
+.main-nav {
+    display: none;
+    padding: 5px 10px;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 160, 0.6);
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.main-nav.open {
+    width: 30%;
+    display: inline-block;
+}
+
+.main-nav-close-btn {
+    float: right;
+    font-size: var(--main-nav-btn-p-fs);
+    color: black;
+    padding: 0 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.main-nav-sitemap a {
+    font-size: var(--main-nav-p-fs);
+    color: black;
+}
+
+.main-nav-sitemap li {
+    list-style: none;
+}
+
+/* 「プログラミング」以下の階層の「ulすべて」の表示位置調整 */
+/* 「em」は「html」の文字サイズを参照する */
+.main-nav-sitemap ul li ul {
+    margin: 0.5em 0 0.75em 30px;
+}
+
+/* 「HTML ＆CSS」の階層の「li」の文字列の下の余白の調整 */
+.main-nav-sitemap ul li ul li {
+    margin-bottom: 0.25em;
+    position: relative;
+}
+
+/* 「HTML & CSS」の階層の文字の左側の縦線 */
+.main-nav-sitemap ul li ul li::before {
+    content: "";
+    position: absolute;
+    top: -0.5em;
+    left: -16px;
+    width: 10px;
+    border-left: 1px solid blue;
+    height: calc(100% + 0.75em);
+}
+
+.main-nav-sitemap ul li ul li:last-child::before {
+    height: calc(2em);
+}
+
+/* 「HTML & CSS」の階層の文字の左側の横線 */
+/* 高さ0、幅のみ持ったエリアにborder-top or bottom */
+.main-nav-sitemap ul li ul li::after {
+    content: "";
+    position: absolute;
+    top: 1.5em;
+    left: -16px;
+    width: 10px;
+    border-top: 1px solid blue;
+}
+
+/* ########################################################## */
+/*                        フッター
+/* ########################################################## */
+.footer-copy {
+    font-size: var(--footer-p-fs);
+    text-align: center;
+    margin-top: 30px;
+}
