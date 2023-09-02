@@ -95,6 +95,7 @@ header {
 .header-wrap {
     max-width: var(--max-width-contents);
     margin: 0 auto;
+    text-align: center;
 }
 
 .header-container {
@@ -121,8 +122,6 @@ header {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
-    text-align: center;
 }
 
 /* ########################################################## */
