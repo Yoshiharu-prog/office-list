@@ -95,6 +95,9 @@ header {
 .header-wrap {
     max-width: var(--max-width-contents);
     margin: 0 auto;
+}
+
+.header-logo {
     text-align: center;
 }
 
