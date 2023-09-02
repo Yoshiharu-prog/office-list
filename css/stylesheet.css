@@ -95,10 +95,7 @@ header {
 .header-wrap {
     max-width: var(--max-width-contents);
     margin: 0 auto;
-}
-
-.header-logo {
-    margin: 0 auto;
+    text-align: center;
 }
 
 .header-logo p {
