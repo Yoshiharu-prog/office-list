@@ -104,7 +104,6 @@ header {
 
 .header-logo {
     margin: 0 0 5px 0;
-    text-align: center;
 }
 
 .header-logo p {
@@ -122,6 +121,8 @@ header {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    text-align: center;
 }
 
 /* ########################################################## */
