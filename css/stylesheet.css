@@ -104,6 +104,7 @@ header {
 
 .header-logo {
     margin: 0 0 5px 0;
+    text-align: center;
 }
 
 .header-logo p {
