@@ -95,16 +95,10 @@ header {
 .header-wrap {
     max-width: var(--max-width-contents);
     margin: 0 auto;
-    text-align: center;
-}
-
-.header-container {
-    display: flex;
-    align-items: center;
 }
 
 .header-logo {
-    margin: 0 0 5px 0;
+    margin: 0 auto;
 }
 
 .header-logo p {
@@ -122,6 +116,7 @@ header {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
 }
 
 /* ########################################################## */
